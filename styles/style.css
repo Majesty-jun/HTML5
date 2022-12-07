@@ -1,19 +1,20 @@
+@import url(./fonts.css);
 @import url(./normalize.css);
 @import url(./reset.css);
 
-/* 숨김 컨텐츠 */
+/* 숨김 콘텐츠 */
 .a11y-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
-  margin: -1px;
   overflow: hidden;
-  clip: rect(0 0 0 0);
   clip-path: polygon(0 0, 0 0, 0 0);
 }
 
-/* 기본스타일 */
-*, *::before, *::after {
+/* 기본 스타일 */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -32,19 +33,20 @@ body {
   /* em, rem 단위를 사용해보기 */
   font-size: 1.4rem;
   color: #212121;
-  background: #ccc 
-  linear-gradient(
-      to bottom, 
-      #ccc 0%, 
-      #eee 35%,
-      #fff 70%, 
-      #fff 100%
-    );
-  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  background: #ccc
+    linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%);
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 /* 레이아웃 */
-.header, .visual, .main, .slogan, .footer-inner {
+.header,
+.visual,
+.main,
+.slogan,
+.footer-inner {
   width: 940px;
   margin: 0 auto;
 }
@@ -58,20 +60,21 @@ body {
 }
 
 /* 로고 */
-.logo { 
+.logo {
   position: absolute;
   top: 45px;
   left: 60px;
+  z-index: 10;
 }
 
 /* 텍스트 링크 모음 */
 .member {
   text-align: right;
   padding: 4px 0;
-  /* position 속성을 활용하여 .member 영역을 오른쪽으로 10px만큼 이동하기 */
+  /* position 속성을 활용하여 .member 영역을 오른쪽으로 10px 만큼 이동하기 */
   /* position: relative;
   right: -10px; */
-   /* transform 속성을 활용하여 .member 영역을 오른쪽으로 10px만큼 이동하기 */
+  /* transform 속성을 활용하여 .member 영역을 오른쪽으로 10px 만큼 이동하기 */
   transform: translateX(10px);
 }
 
@@ -85,7 +88,7 @@ body {
   text-transform: uppercase;
 }
 
-/* 마지막 li요소에 포함된 a 요소를 선택하여 오른쪽 padding 값을 0으로 재정의 하는 방법 */
+/* 마지막 li 요소에 포함된 a 요소를 선택하여 오른쪽 padding 값을 0으로 재정의 하는 방법 */
 /* .member li:last-child a {
   padding-right: 0;
 } */
@@ -94,14 +97,13 @@ body {
   margin-right: 4px;
 }
 
-/* 메인메뉴 */
+/* 메인 메뉴 */
 .navigation {
   padding-bottom: 80px;
 }
 
 .menu {
-  border-top: 2px solid #212121;
-  border-radius: 0 0 5px 5px;
+  border-top: 2px solid currentColor;
   background: #e85e2c
     linear-gradient(
       to bottom,
@@ -110,8 +112,14 @@ body {
       #e85e2c 70%,
       #ef9126 100%
     );
+  border-radius: 0 0 5px 5px;
   padding-left: 230px;
   height: 47px;
+  position: relative;
+}
+
+.menu > li:nth-child(-n + 3) {
+  position: relative;
 }
 
 .menu-item {
@@ -119,6 +127,7 @@ body {
   border-left: 2px solid #fff;
 }
 
+/* 구체성 -> 10점 */
 .menu-button {
   border: 0;
   background: transparent;
@@ -130,25 +139,66 @@ body {
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
 }
 
+/* 구체성 -> 20점 */
 .is-active .menu-button {
   color: #ff0;
 }
 
 .is-active .menu-button::after {
   content: "";
-  display: block; /* 버튼 태그 안의 텍스트는 inline */
-  border-top: 2px solid #212121;
-}
-
-.is-active::after {
-  content: "";
-  border-top: 2px solid #212121;
+  display: block;
+  border-top: 2px solid #000;
 }
 
 .sub-menu {
   background-color: pink;
   position: absolute;
+  top: 47px;
   display: none;
+}
+
+.menu-html,
+.menu-css,
+.menu-standards {
+  left: 0;
+}
+
+.menu-accessibility,
+.meun-qna,
+.menu-archive {
+  right: 0;
+}
+
+.is-active .sub-menu {
+  display: block;
+  white-space: nowrap;
+}
+
+.sub-menu li {
+  display: inline-block;
+  background-color: gold;
+}
+
+.sub-menu a::before {
+  font-family: "fontello";
+  content: "\e805";
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 마우스를 올렸을 떄 before 선택 */
+.sub-menu a:hover::before, .sub-menu a:focus::before {
+  content: "\e801";
 }
 
 /* 비주얼 */
@@ -156,7 +206,6 @@ body {
   background: orange;
   height: 10vh;
 }
-
 /* 메인 */
 .main {
   background: lightgreen;
@@ -174,12 +223,10 @@ body {
   background-color: violet;
   width: 250px;
 }
-
 .group2 {
   background-color: salmon;
   width: 380px;
 }
-
 .group3 {
   background-color: gold;
   width: 190px;
@@ -191,19 +238,12 @@ body {
   height: 10vh;
   clear: both;
 }
-
 /* 푸터 */
 .footer {
-  background: #ccc 
-    linear-gradient(to bottom,
-      #ccc 0%, 
-      #eee 35%,
-      #fff 70%,
-      #fff 100%
-    );
+  background: #ccc
+    linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%);
 }
-
 .footer-inner {
+  background: silver;
   height: 15vh;
-  background-color: silver;
 }
