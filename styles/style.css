@@ -130,6 +130,21 @@ body {
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
 }
 
+.is-active .menu-button {
+  color: #ff0;
+}
+
+.is-active .menu-button::after {
+  content: "";
+  display: block; /* 버튼 태그 안의 텍스트는 inline */
+  border-top: 2px solid #212121;
+}
+
+.is-active::after {
+  content: "";
+  border-top: 2px solid #212121;
+}
+
 .sub-menu {
   background-color: pink;
   position: absolute;
