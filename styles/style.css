@@ -757,7 +757,6 @@ body {
 }
 
 .slogan-title {
-  background: pink;
   width: 110px;
   height: 83px;
   position: absolute;
@@ -797,7 +796,38 @@ body {
   background: #ccc
     linear-gradient(to bottom, #ccc 0%, #eee 35%, #fff 70%, #fff 100%);
 }
+
+.footer-logo {
+  margin-top: 30px;
+}
+
 .footer-inner {
-  background: silver;
-  height: 15vh;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+}
+
+.guide-list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  border-radius: 50px;
+  text-transform: uppercase;
+  background-color: #7b8385;
+  color: #fff;
+}
+
+.guide-list {
+  padding: 4px 45px;
+  text-transform: uppercase;
+  border-radius: 30px;
+}
+
+.guide-list a {
+  display: block;
+  padding: 6px 10px;
+}
+
+.address, .copyright {
+  margin: 10px 0;
 }
